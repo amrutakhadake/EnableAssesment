@@ -1,0 +1,79 @@
+﻿ /*all product list
+    private ILocator allProducts => page.Locator(".inventory_item");
+    private ILocator cartItem => page.Locator("[data-test='shopping-cart-link']");
+    private ILocator backToProduct => page.Locator("[data-test=\"back-to-products\"]");
+    public async Task AddProductToCartByIndex(int index = 0)
+    {
+        var product = allProducts.Nth(index);
+        await product.ScrollIntoViewIfNeededAsync(); // optional scroll
+        var addButton = product.Locator("button:has-text('Add to cart')");
+        await addButton.ClickAsync();
+        Console.WriteLine($"Added product {index + 1} to cart");
+    }
+    public async Task AddRandomProductToCart()
+    {
+        int totalProducts = await allProducts.CountAsync();
+        if (totalProducts == 0)
+        {
+            Console.WriteLine("No products found on page");
+            return;
+        }
+
+        Random rnd = new Random();
+        int index = rnd.Next(0, totalProducts);
+        await AddProductToCartByIndex(index);
+    }
+
+
+    public async Task AddMultipleProductsToCart(int count)
+    {
+        int totalProducts = await allProducts.CountAsync();
+        count = Math.Min(count, totalProducts);
+
+        for (int i = 0; i < count; i++)
+        {
+            await AddProductToCartByIndex(i);
+        }
+    }
+
+    public async Task ViewCart()
+    {
+        await cartItem.ClickAsync();
+    }
+    public async Task BackToProduct()
+    {
+        await backToProduct.ClickAsync();
+    }
+}*
+
+
+    /*private ILocator firstProduct => page.Locator(".inventory_item").Nth(0);
+    private ILocator firstProduct => page.Locator("[data-test=\"item-0-title-link\"]");
+        private ILocator addToCart => page.Locator("[data-test=\"add-to-cart\"]");
+        private ILocator backToProduct => page.Locator("[data-test=\"back-to-products\"]");
+        private ILocator secondProduct => page.Locator("[data-test=\"add-to-cart-sauce-labs-fleece-jacket\"]");
+        private ILocator cartItem=> page.Locator("[data-test=\"shopping-cart-link\"]");
+        //private ILocator secondProduct => page.Locator(".inventory_item").Nth(1);
+        //  private ILocator addToCart => page.Locator("button:has-text('Add to cart')");
+        public async Task OpenFirstProduct()
+        { 
+            await firstProduct.ClickAsync();
+        }
+        public async Task AddProductInCart()
+        {
+            await addToCart.ClickAsync();
+        }
+        public async Task BackToProduct()
+        { 
+            await backToProduct.ClickAsync(); 
+        }
+        public async Task AddSecondProduct()
+        {
+            await secondProduct.ClickAsync();
+
+        }
+        public async Task Viewcart()
+        {
+            await cartItem.ClickAsync();
+        }
+    }*/
